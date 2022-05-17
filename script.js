@@ -12,17 +12,20 @@ function computerPlay () {
 }
 
 
-function computerPlay () {
-    var rnd_num;
-    rnd_num = Math.floor(Math.random()*3)
-    if (rnd_num === 0) {
-        return ("Rock");}
-    else if (rnd_num === 1) {
-        return ("Paper");
-    }
-    else {
-        return ("Scissors");
-    }
+function getPlayerInput() {
+    let validEntry = false;
+    let choice = "";
+    do {
+        choice = prompt("Enter 'rock' 'paper' or 'scissors' please : ");
+        choice = choice.toLowerCase();
+        if ((choice != "rock") && (choice != "paper") && (choice != "scissors")) {
+            alert ("I'm sorry, " + choice + " is not allowed to play Rock, Paper, Scissors!");
+        }
+        else {
+            validEntry = true;
+        }
+    } while (validEntry == false);
+    return choice
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -40,8 +43,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game () {
     for (var i = 0; i < 10; i++) {
-        let choice = prompt("Enter 'rock' 'paper' or 'scissors' please : ");
-        let result = playRound(choice, computerPlay());
+        let result = playRound(getPlayerInput(), computerPlay());
         alert (result);
     }
 }
