@@ -25,7 +25,7 @@ function getPlayerInput() {
             validEntry = true;
         }
     } while (validEntry == false);
-    return choice
+    return (choice);
 }
 
 function playRound(playerSelection, computerSelection) {
