@@ -9,24 +9,21 @@
     <title>Document</title>
 </head>
 <body>
-    <button id='rock'>Rock</button>
-    <button id='paper'>Paper</button>
-    <button id='scissors'>Scissors</button>
-    
+    <div id="playersChoice">
+        <button id='rock'>Rock</button>
+        <button id='paper'>Paper</button>
+        <button id='scissors'>Scissors</button>
+    </div>    
     <script>
-        const but1 = document.querySelector('#rock');
-        but1.addEventListener('click', function() {
-            alert (playRound(but1.id, computerPlay()));
+        // Get all the buttons within playerschoice container
+        const userButton = document.querySelectorAll ('#playersChoice > button');
+        // For each button, create an event listener for the click which will play a round.
+        // Note the Button.ID identifies the players choice.
+        userButton.forEach(button => {
+            button.addEventListener('click', function() {
+                alert (playRound(button.id, computerPlay()));
+            });
         });
-        const but2 = document.querySelector('#paper');
-        but2.addEventListener('click', function() {
-            alert (playRound(but2.id, computerPlay()));
-        });
-        const but3 = document.querySelector('#scissors');
-        but3.addEventListener('click', function() {
-            alert (playRound(but3.id, computerPlay()));
-        });
-
     </script>
 </body>
 </html>
