@@ -9,8 +9,24 @@
     <title>Document</title>
 </head>
 <body>
+    <button id='rock'>Rock</button>
+    <button id='paper'>Paper</button>
+    <button id='scissors'>Scissors</button>
+    
     <script>
-        game();
+        const but1 = document.querySelector('#rock');
+        but1.addEventListener('click', function() {
+            alert (playRound(but1.id, computerPlay()));
+        });
+        const but2 = document.querySelector('#paper');
+        but2.addEventListener('click', function() {
+            alert (playRound(but2.id, computerPlay()));
+        });
+        const but3 = document.querySelector('#scissors');
+        but3.addEventListener('click', function() {
+            alert (playRound(but3.id, computerPlay()));
+        });
+
     </script>
 </body>
 </html>

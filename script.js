@@ -1,6 +1,6 @@
 function computerPlay () {
     var rnd_num;
-    rnd_num = Math.floor(Math.random()*3)
+    rnd_num = Math.floor(Math.random()*3);
     if (rnd_num === 0) {
         return ("Rock");}
     else if (rnd_num === 1) {
@@ -42,8 +42,5 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game () {
-    for (var i = 0; i < 10; i++) {
-        let result = playRound(getPlayerInput(), computerPlay());
-        alert (result);
-    }
+
 }
