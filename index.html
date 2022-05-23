@@ -9,19 +9,57 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="header">
+      <h1>Epic Rock Paper Scissors</h1>
+      <h3>Man -vs- Machine</h3>
+    </div>
+
+
     <div id="playersChoice">
         <button id='rock'>Rock</button>
         <button id='paper'>Paper</button>
         <button id='scissors'>Scissors</button>
     </div>    
+    
+    <div id="result">
+    </div>
+
+    <div id="count">
+    </div>
+
     <script>
+
+        let gamesPlayed = 0;
+        let playerWon = 0;
+        let computerWon = 0;
+
+        const countMsg = document.querySelector ('#count');
+
+        const resultMsg = document.querySelector ('#result');
         // Get all the buttons within playerschoice container
         const userButton = document.querySelectorAll ('#playersChoice > button');
         // For each button, create an event listener for the click which will play a round.
         // Note the Button.ID identifies the players choice.
         userButton.forEach(button => {
             button.addEventListener('click', function() {
-                alert (playRound(button.id, computerPlay()));
+                gamesPlayed++;
+                resultMsg.textContent = playRound(button.id, computerPlay());
+                if ((playerWon + computerWon) < 5) {
+                    if (playerWon > computerWon) {
+                        countMsg.textContent = "The current tally is " + playerWon + " to " + computerWon + " in your favor!";
+                    } else if (computerWon > playerWon) {
+                        countMsg.textContent = "The current tally is " + computerWon + " to " + playerWon + " in the computer's favor!";
+                    } else {
+                        countMsg.textContent = "It's a tie game, " + playerWon + " wins each!";
+                    }
+                } else {
+                    resultMsg.textContent = '';
+                    countMsg.textContent = '';
+                    gamesPlayed = 0;
+                    playerWon = 0;
+                    computerWon = 0;
+                    alert("Best of 5 series results : You won " + playerWon +", lost " + computerWon + ", and tied "+ (5-playerWon-computerWon) + " of them.");
+                }
             });
         });
     </script>

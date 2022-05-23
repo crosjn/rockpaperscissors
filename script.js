@@ -31,9 +31,11 @@ function getPlayerInput() {
 function playRound(playerSelection, computerSelection) {
     playerSelection=playerSelection.toLowerCase();
     if ((playerSelection === 'paper' && computerSelection === 'Scissors') || (playerSelection === 'scissors' && computerSelection === 'Rock') || (playerSelection === 'rock' && computerSelection === 'Paper')) {
+            computerWon++;
             return ("You Lose! Your " + playerSelection + " is beaten by the computer's " + computerSelection + "!");
     }
     else if ((playerSelection === 'rock' && computerSelection === 'Scissors') || (playerSelection === 'paper' && computerSelection === 'Rock') || (playerSelection === 'scissors' && computerSelection === 'Paper')) {
+        playerWon++;
         return ("You Win! Your " + playerSelection + " beats the computer's " + computerSelection + "!");
     }
     else {
